@@ -20,3 +20,10 @@ export const WelcomeContainer = styled.div`
     border-radius: 5px;
     background-color: var(--color-gray);
 `;
+
+export const StyledHomeP = styled.p`
+    //margin-top: 0.9rem;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    text-align: center;
+`;
