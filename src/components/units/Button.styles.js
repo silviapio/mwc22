@@ -10,4 +10,9 @@ export const StyledButton = styled.button`
     color: var(--color-blue);
     font-weight: 500;
     font-size: 1rem;
+    cursor: pointer;
+    &:hover {
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        background-color: var(--color-yellow-90);
+    }
 `;
