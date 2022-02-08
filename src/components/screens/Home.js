@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import LogoBar from "../units/LogoBar";
 import Title from "../units/Title";
 import PlainIcon from "../units/PlainIcon";
@@ -17,7 +18,9 @@ function Home() {
                     <PlainIcon size="24px">
                         <HiOutlineThumbUp />
                     </PlainIcon>
-                    <Button text="NEW PROFILE" onClick={()=> console.log("click")}/>
+                    <Link to="/form-basic">
+                        <Button text="NEW PROFILE" />
+                    </Link>
                 </WelcomeContainer>
             </HomeContainer>
         </>
