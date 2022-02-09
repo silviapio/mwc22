@@ -4,3 +4,8 @@ export const isEmailInputOk = str => {
     const simpleRegex = /(.+)@(.+){2,}\.(.+){2,}/;
     return simpleRegex.test(str);
 }
+
+export const charactersLeft = (charAllowed, str) => {
+    const charTyped = str.length;
+    return charAllowed - charTyped;
+}

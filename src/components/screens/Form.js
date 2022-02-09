@@ -2,7 +2,7 @@ import { useState } from "react";
 import Title from "../units/Title";
 import InputText from "../units/InputText";
 import Button from "../units/Button";
-import { isEmailInputOk } from "../../utils/checkInputText";
+import { isEmailInputOk, charactersLeft } from "../../utils/checkInputText";
 import textInputsData from "../../assets/inputsData";
 import { FormOuterContainer, FormInputContainer } from "./Form.styles";
 
@@ -19,9 +19,11 @@ function Form() {
         ["email", { error: true, visible: false }],
         ["city", { error: false, visible: false }],
         ["country", { error: true, visible: false }],
-        ["description", { error: false, visible: false }]
+        ["description", { error: false, visible: true }]
     ]));
     const [savedData, setSavedData] = useState(JSON.stringify(localStorage.getItem("savedData")) || "");
+
+    const CHAR_ALLOWED_DESC = 160;
 
     const checkOnBlur = e => {
         const field = e.target.name;
@@ -60,12 +62,18 @@ function Form() {
         console.log("submit")
     }
 
-    const handleInputChange = (type, e) => {
-        if (type === "text") {
+    const handleInputChange = e => {
+        if (e.target.type === "text" || e.target.type === "textarea") {
             setFormData(prevData => ({
                 ...prevData,
                 [e.target.name] : e.target.value
             }))
+        }
+        if (e.target.type === "textarea") {
+            const charLeft = charactersLeft(CHAR_ALLOWED_DESC, e.target.value);
+            const updatedErrors = new Map(inputErrors);
+            updatedErrors.set("description", { error: charLeft < 0, visible: true })
+            setInputErrors(updatedErrors)
         }
     }
 
@@ -79,6 +87,14 @@ function Form() {
     };
 
     const hasError = id => inputErrors.get(id).error && inputErrors.get(id).visible;
+
+    const getMessage = (str, id) => {
+        if (id === "description") {
+            return `${charactersLeft(CHAR_ALLOWED_DESC, formData.description)} characters left`;
+        } else {
+            return str;
+        }
+    }
 
     return(
         <>
@@ -94,10 +110,11 @@ function Form() {
                             value={formData[input.id]}
                             labelText={input.labelText}
                             placeholderText={input.placeholderText}
-                            messageText={input.messageText}
+                            messageText={getMessage(input.messageText, input.id)}
                             displayMessage={displayMessage(input.id)}
+                            textareaOverFlow={input.type === "textarea" ? inputErrors.get("description").error : undefined}
                             onBlur={checkOnBlur}
-                            onChange={e => handleInputChange("text", e)}
+                            onChange={handleInputChange}
                         />
                     )}
                 </FormInputContainer>

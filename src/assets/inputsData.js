@@ -32,7 +32,7 @@ const inputsData = [
         type: "textarea",
         labelText: "Description",
         placeholderText: "ex: passionate front-end developer",
-        messageText: "max 260 characters",
+        messageText: "characters left",
         checkOnBlur: true
     }
 ];
