@@ -15,7 +15,7 @@ function Home() {
                     <PlainIcon size="24px">
                         <HiOutlineThumbUp />
                     </PlainIcon>
-                    <Link to="/form-basic">
+                    <Link to="/form">
                         <Button text="NEW PROFILE" />
                     </Link>
                 </WelcomeContainer>

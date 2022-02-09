@@ -1,7 +1,7 @@
-import {Routes, Route, Link} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import Main from "./components/composed/Main";
 import Home from "./components/screens/Home";
-import FormBasic from "./components/screens/FormBasic";
+import Form from "./components/screens/Form";
 import { OuterContainer, StyledFooter } from "./App.styles";
 import { GlobalStyles } from "./general-styles/globalStyles";
 
@@ -15,7 +15,7 @@ function App() {
         <Main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/form-basic" element={<FormBasic />} />
+            <Route path="/form" element={<Form />} />
           </Routes>
         </Main>
         <StyledFooter>Fixed Footer</StyledFooter>
