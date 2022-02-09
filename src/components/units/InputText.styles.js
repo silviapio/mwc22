@@ -15,7 +15,7 @@ export const StyledLabel = styled.label`
 export const StyledInput = styled.input`
     max-height: 2rem;
     min-width: 250px;
-    border: 1px solid var(--color-blue);
+    border: 1px solid ${props => props.outlineRed ? "red" : "var(--color-blue)"};
     border-radius: 5px;
     padding: 5px;
     color: var(--color-blue);
@@ -26,6 +26,7 @@ export const StyledInput = styled.input`
     }
     &:focus-visible { //check if it's ok for all browsers
         outline: 1px solid var(--color-blue);
+        border: 1px solid var(--color-blue);
     }
 `;
 
@@ -48,6 +49,8 @@ export const StyledTextArea = styled.textarea`
 `;
 
 export const StyledSmallMessage = styled.small`
+    display: ${props => props.show ? "block" : "none"};
+    color: red;
     font-size: 0.75rem;
     font-style: italic;
     font-weight: 300;

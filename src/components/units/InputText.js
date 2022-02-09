@@ -1,6 +1,6 @@
 import { InputContainer, StyledInput, StyledLabel, StyledSmallMessage, StyledTextArea } from "./InputText.styles";
 
-function InputText({left, id, value, labelText, placeholderText, messageText, onChange, onBlur, type}) {
+function InputText({left, id, value, labelText, placeholderText, messageText, displayMessage, onChange, onBlur, type, hasError}) {
 
     const inputField = type => {
         if (type === "text") {
@@ -10,6 +10,7 @@ function InputText({left, id, value, labelText, placeholderText, messageText, on
                         type={type} 
                         value={value}
                         placeholder={placeholderText} 
+                        outlineRed={displayMessage}
                         onBlur={onBlur} 
                         onChange={onChange}
                     />;
@@ -31,7 +32,7 @@ function InputText({left, id, value, labelText, placeholderText, messageText, on
             {labelText}
             </StyledLabel>
                 {inputField(type)}
-            <StyledSmallMessage>
+            <StyledSmallMessage show={displayMessage} hasError={hasError}>
                 {messageText}
             </StyledSmallMessage>
         </InputContainer>
