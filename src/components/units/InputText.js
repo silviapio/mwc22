@@ -1,12 +1,36 @@
-import { InputContainer, StyledInput, StyledLabel, StyledSmallMessage } from "./InputText.styles";
+import { InputContainer, StyledInput, StyledLabel, StyledSmallMessage, StyledTextArea } from "./InputText.styles";
 
-function InputText({left, id, labelText, placeholderText, messageText, onBlur}) {
+function InputText({left, id, value, labelText, placeholderText, messageText, onChange, onBlur, type}) {
+
+    const inputField = type => {
+        if (type === "text") {
+            return <StyledInput 
+                        id={id} 
+                        name={id}
+                        type={type} 
+                        value={value}
+                        placeholder={placeholderText} 
+                        onBlur={onBlur} 
+                        onChange={onChange}
+                    />;
+        } else if (type === "textarea") {
+            return <StyledTextArea 
+                        id={id} 
+                        name={id}
+                        type={type} 
+                        value={value}
+                        placeholder={placeholderText} 
+                        onBlur={onBlur} 
+                        onChange={onChange}
+                    />;
+        }
+    }
     return(
         <InputContainer  left={left}>
             <StyledLabel htmlFor={id}>
             {labelText}
             </StyledLabel>
-            <StyledInput id={id} type="text" placeholder={placeholderText} onBlur={onBlur} />
+                {inputField(type)}
             <StyledSmallMessage>
                 {messageText}
             </StyledSmallMessage>

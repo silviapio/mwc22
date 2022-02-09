@@ -18,7 +18,26 @@ export const StyledInput = styled.input`
     border: 1px solid var(--color-blue);
     border-radius: 5px;
     padding: 5px;
+    color: var(--color-blue);
     font-size: 0.9rem;
+    &::placeholder {
+        color: var(--color-gray);
+        font-weight: 500;
+    }
+    &:focus-visible { //check if it's ok for all browsers
+        outline: 1px solid var(--color-blue);
+    }
+`;
+
+export const StyledTextArea = styled.textarea`
+    min-height: 5rem;
+    min-width: 250px;
+    resize: none;
+    border: 1px solid var(--color-blue);
+    border-radius: 5px;
+    padding: 5px;
+    color: var(--color-blue);
+    font-size: 0.8rem;
     &::placeholder {
         color: var(--color-gray);
         font-weight: 500;
