@@ -37,9 +37,9 @@ export const textInputsData = [
     }
 ];
 
-export const radioInputData = {
+export const radioGenderData = {
     name: "gender",
-    question: "Gender",
+    question: "Gender:",
     options: [
         {
             id: "def",
@@ -53,5 +53,51 @@ export const radioInputData = {
             id: "M",
             text: "Man"
         },
+    ]
+};
+
+export const radioFieldData = {
+    name: "field",
+    question: "Field of expertise:",
+    options: [
+        {
+            id: "def",
+            text: "Front End"
+        },
+        {
+            id: "BE",
+            text: "Back End"
+        },
+        {
+            id: "data",
+            text: "Data"
+        },
+        {
+            id: "mob",
+            text: "Mobile"
+        }
+    ]
+};
+
+export const radioYearsData = {
+    name: "yearsExp",
+    question: "Years of experience:",
+    options: [
+        {
+            id: "def",
+            text: "0-2"
+        },
+        {
+            id: "mid",
+            text: "2-5"
+        },
+        {
+            id: "exp",
+            text: "5-10"
+        },
+        {
+            id: "exp+",
+            text: "10+"
+        }
     ]
 }

@@ -5,7 +5,7 @@ import InputRadio from "../units/InputRadio";
 import AvatarBox from "../composed/AvatarBox";
 import Button from "../units/Button";
 import { isEmailInputOk, charactersLeft } from "../../utils/checkInputText";
-import { textInputsData, radioInputData } from "../../assets/inputsData";
+import { textInputsData, radioGenderData, radioFieldData, radioYearsData } from "../../assets/inputsData";
 import { FormOuterContainer, FormInputContainer } from "./Form.styles";
 
 function Form() {
@@ -17,7 +17,9 @@ function Form() {
         country: "",
         description: "",
         gender: "def",
-        avatarUrl: ""
+        avatarUrl: "",
+        field: "def",
+        yearsExp: "def"
     });
     const [inputErrors, setInputErrors] = useState(new Map([
         ["name", { error: true, visible: false }],
@@ -129,15 +131,32 @@ function Form() {
                             onChange={handleInputChange}
                         />
                     )}
+                    <InputRadio 
+                        name={radioFieldData.name}
+                        options={radioFieldData.options}
+                        value={formData.field}
+                        question={radioFieldData.question}
+                        infoText="..."
+                        onChange={handleInputChange}
+                    />
+                    <InputRadio 
+                        name={radioYearsData.name}
+                        options={radioYearsData.options}
+                        value={formData.yearsExp}
+                        question={radioYearsData.question}
+                        infoText="..."
+                        onChange={handleInputChange}
+                    />
                     <InputRadio
-                        name={radioInputData.name}
-                        options={radioInputData.options}
+                        name={radioGenderData.name}
+                        options={radioGenderData.options}
                         value={formData.gender}
-                        question={radioInputData.question}
+                        question={radioGenderData.question}
                         infoText="we'll use it only for avatar creation"
                         onChange={handleInputChange}
                     />
                     <AvatarBox gender={formData.gender} onChange={handleAvatarChange}/>
+                    
                 </FormInputContainer>
                 <Button text="Save" onClick={handleSubmit} />
 
