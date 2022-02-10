@@ -14,6 +14,7 @@ function Form() {
         city: "",
         country: "",
         description: "",
+        gender: "def"
     });
     const [inputErrors, setInputErrors] = useState(new Map([
         ["name", { error: true, visible: false }],
@@ -64,19 +65,19 @@ function Form() {
     }
 
     const handleInputChange = e => {
-        if (e.target.type === "text" || e.target.type === "textarea") {
+        if (e.target.type === "text" || e.target.type === "textarea" || e.target.type === "radio") {
             setFormData(prevData => ({
                 ...prevData,
                 [e.target.name] : e.target.value
             }))
-        }
+        } 
         if (e.target.type === "textarea") {
             const charLeft = charactersLeft(CHAR_ALLOWED_DESC, e.target.value);
             const updatedErrors = new Map(inputErrors);
             updatedErrors.set("description", { error: charLeft < 0, visible: true })
             setInputErrors(updatedErrors)
         }
-    }
+    };
 
     const displayMessage = id => {
         if (id === "description") {
@@ -121,9 +122,10 @@ function Form() {
                     <InputRadio
                         name={radioInputData.name}
                         options={radioInputData.options}
-                        value={"ND"}
+                        value={formData.gender}
                         question={radioInputData.question}
-                        infoText="we only use this info for random avatar creation"
+                        infoText="we'll use it only for avatar creation"
+                        onChange={handleInputChange}
                     />
                 </FormInputContainer>
                 <Button text="Save" onClick={handleSubmit} />
