@@ -2,19 +2,22 @@ import { useState } from "react";
 import Title from "../units/Title";
 import InputText from "../units/InputText";
 import InputRadio from "../units/InputRadio";
+import AvatarBox from "../composed/AvatarBox";
 import Button from "../units/Button";
 import { isEmailInputOk, charactersLeft } from "../../utils/checkInputText";
 import { textInputsData, radioInputData } from "../../assets/inputsData";
 import { FormOuterContainer, FormInputContainer } from "./Form.styles";
 
 function Form() {
+    const CHAR_ALLOWED_DESC = 160;
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         city: "",
         country: "",
         description: "",
-        gender: "def"
+        gender: "def",
+        avatarUrl: ""
     });
     const [inputErrors, setInputErrors] = useState(new Map([
         ["name", { error: true, visible: false }],
@@ -23,9 +26,7 @@ function Form() {
         ["country", { error: true, visible: false }],
         ["description", { error: false, visible: true }]
     ]));
-    const [savedData, setSavedData] = useState(JSON.stringify(localStorage.getItem("savedData")) || "");
-
-    const CHAR_ALLOWED_DESC = 160;
+    const [savedData, setSavedData] = useState(JSON.stringify(localStorage.getItem("savedData")) || ""); 
 
     const checkOnBlur = e => {
         const field = e.target.name;
@@ -98,6 +99,15 @@ function Form() {
         }
     }
 
+    const handleAvatarChange = imgUrl => {
+        setFormData(
+            prevData => ({
+                ...prevData,
+                avatarUrl: imgUrl
+            })
+        );
+    };
+
     return(
         <>
             <FormOuterContainer onSubmit={handleSubmit}>
@@ -127,6 +137,7 @@ function Form() {
                         infoText="we'll use it only for avatar creation"
                         onChange={handleInputChange}
                     />
+                    <AvatarBox gender={formData.gender} onChange={handleAvatarChange}/>
                 </FormInputContainer>
                 <Button text="Save" onClick={handleSubmit} />
 
