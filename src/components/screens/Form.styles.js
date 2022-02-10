@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const FormOuterContainer = styled.form`
-    height: 95%;
+    max-height: 95%;
+    overflow-y: scroll;
     padding: 20px 10px 10px 10px;
 `;
 

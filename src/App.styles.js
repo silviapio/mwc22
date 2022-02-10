@@ -12,6 +12,7 @@ export const OuterContainer = styled.div`
 export const StyledFooter = styled.footer`
     margin-top: auto;
     width: 100%;
+    height: 10%:
     color: var(--color-blue);
     text-align: center;
 `;
