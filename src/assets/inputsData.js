@@ -1,4 +1,4 @@
-const inputsData = [
+export const textInputsData = [
     {
         id: "name",
         type: "text",
@@ -37,4 +37,21 @@ const inputsData = [
     }
 ];
 
-export default inputsData;
+export const radioInputData = {
+    name: "gender",
+    question: "Gender",
+    options: [
+        {
+            id: "def",
+            text: "Prefer not to say"
+        },
+        {
+            id: "W",
+            text: "Woman"
+        },
+        {
+            id: "M",
+            text: "Man"
+        },
+    ]
+}

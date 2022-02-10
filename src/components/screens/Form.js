@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Title from "../units/Title";
 import InputText from "../units/InputText";
+import InputRadio from "../units/InputRadio";
 import Button from "../units/Button";
 import { isEmailInputOk, charactersLeft } from "../../utils/checkInputText";
-import textInputsData from "../../assets/inputsData";
+import { textInputsData, radioInputData } from "../../assets/inputsData";
 import { FormOuterContainer, FormInputContainer } from "./Form.styles";
 
 function Form() {
@@ -117,6 +118,13 @@ function Form() {
                             onChange={handleInputChange}
                         />
                     )}
+                    <InputRadio
+                        name={radioInputData.name}
+                        options={radioInputData.options}
+                        value={"ND"}
+                        question={radioInputData.question}
+                        infoText="we only use this info for random avatar creation"
+                    />
                 </FormInputContainer>
                 <Button text="Save" onClick={handleSubmit} />
 
