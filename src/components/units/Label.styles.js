@@ -23,11 +23,14 @@ export const LabelButton = styled.button`
     border: none;
     border-radius: 5px;
     font-size: 1.2rem;
+    padding: 1px 2px;
+    margin-left: 3px;
     &:hover {
         cursor: pointer;
         color: var(--color-yellow);
     }
     &:focus {
         color: var(--color-yellow);
+        outline: 1px solid var(--color-yellow);
     }
 `;
