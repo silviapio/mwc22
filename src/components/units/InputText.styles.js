@@ -25,8 +25,7 @@ export const StyledInput = styled.input`
         font-weight: 500;
     }
     &:focus-visible { //check if it's ok for all browsers
-        outline: 1px solid var(--color-blue);
-        border: 1px solid var(--color-blue);
+        outline: 1px solid ${props => props.outlineRed ? "red" : "var(--color-blue)"};
     }
 `;
 
@@ -34,7 +33,7 @@ export const StyledTextArea = styled.textarea`
     min-height: 5rem;
     min-width: 250px;
     resize: none;
-    border: 1px solid ${props => props.textareaOverFlow ? "red" : "var(--color-blue)"};
+    border: 1px solid ${props => props.textOverFlow ? "red" : "var(--color-blue)"};
     border-radius: 5px;
     padding: 5px;
     color: var(--color-blue);
@@ -44,13 +43,13 @@ export const StyledTextArea = styled.textarea`
         font-weight: 500;
     }
     &:focus-visible { //check if it's ok for all browsers
-        outline: 1px solid ${props => props.textareaOverFlow ? "red" : "var(--color-blue)"};
+        outline: 1px solid ${props => props.textOverFlow ? "red" : "var(--color-blue)"};
     }
 `;
 
 export const StyledSmallMessage = styled.small`
     display: ${props => props.show ? "block" : "none"};
-    color: ${props => props.type === "text" || props.textareaOverFlow ? "red" : "currentColor" };
+    color: ${props => props.error ? "red" : "currentColor" };
     font-size: 0.75rem;
     font-style: italic;
     font-weight: 300;

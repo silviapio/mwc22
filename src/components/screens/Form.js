@@ -3,6 +3,7 @@ import Title from "../units/Title";
 import InputText from "../units/InputText";
 import InputRadio from "../units/InputRadio";
 import AvatarBox from "../composed/AvatarBox";
+import SkillsBox from "../composed/SkillsBox";
 import Button from "../units/Button";
 import { isEmailInputOk, charactersLeft } from "../../utils/checkInputText";
 import { textInputsData, radioGenderData, radioFieldData, radioYearsData } from "../../assets/inputsData";
@@ -126,7 +127,7 @@ function Form() {
                             placeholderText={input.placeholderText}
                             messageText={getMessage(input.messageText, input.id)}
                             displayMessage={displayMessage(input.id)}
-                            textareaOverFlow={input.type === "textarea" ? inputErrors.get("description").error : undefined}
+                            textOverFlow={input.type === "textarea" ? inputErrors.get("description").error : undefined}
                             onBlur={checkOnBlur}
                             onChange={handleInputChange}
                         />
@@ -156,7 +157,7 @@ function Form() {
                         onChange={handleInputChange}
                     />
                     <AvatarBox gender={formData.gender} onChange={handleAvatarChange}/>
-                    
+                    <SkillsBox />
                 </FormInputContainer>
                 <Button text="Save" onClick={handleSubmit} />
 

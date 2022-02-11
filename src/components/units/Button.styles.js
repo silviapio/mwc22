@@ -16,4 +16,11 @@ export const StyledButton = styled.button`
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         background-color: ${props => props.dark ? "var(--color-blue-90)" : "var(--color-yellow-90)"};
     }
+    &.button--add-skill {
+        max-height: 2rem;
+        padding: 5px;
+        align-self: flex-start;
+        margin-top: 1.4rem;
+        margin-left: 0.5rem;
+    }
 `;
