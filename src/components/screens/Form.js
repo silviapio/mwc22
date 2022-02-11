@@ -20,18 +20,18 @@ function Form() {
         gender: "def",
         avatarUrl: "",
         field: "def",
-        yearsExp: "def"
+        yearsExp: "def",
+        skills: []
     });
     const [inputErrors, setInputErrors] = useState(new Map([
         ["name", { error: true, visible: false }],
         ["email", { error: true, visible: false }],
         ["city", { error: false, visible: false }],
         ["country", { error: true, visible: false }],
-        ["description", { error: false, visible: true }]
+        ["description", { error: false, visible: true }],
+        ["skills", { error: true, visible: false }]
     ]));
     const [savedData, setSavedData] = useState(JSON.stringify(localStorage.getItem("savedData")) || ""); 
-
-    console.log("rerender")
 
     const checkOnBlur = e => {
         const field = e.target.name;
@@ -115,7 +115,13 @@ function Form() {
 
     const handleAddSkill = str => {
         console.log(str);
+        setFormData(prevData => ({
+            ...prevData,
+            skills: [...prevData.skills, str]
+        }));
     }
+
+    console.log(formData.skills);
 
     return(
         <>

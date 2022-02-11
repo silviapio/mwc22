@@ -31,8 +31,12 @@ function SkillsBox({handleAddSkill}) {
 
     const handleAdd = e => {
         e.preventDefault();
-        if (currentSkill.text) {
-            handleAddSkill(currentSkill.text)
+        if (currentSkill.text && !currentSkill.hasError) {
+            handleAddSkill(currentSkill.text);
+            setCurrentSkill({
+                text: "",
+                hasError: false
+            });
         } else {
             return;
         }
