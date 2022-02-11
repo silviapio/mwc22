@@ -1,7 +1,7 @@
 import { HiOutlineTrash } from "react-icons/hi";
 import { LabelContainer, LabelText, LabelButton } from "./Label.styles";
 
-function Label({text, onClick, id}) {
+function Label({text, onClick, id, canBeDeleted = true}) {
     const handleClick = (e) => {
         onClick(e, id);
     }
@@ -9,9 +9,10 @@ function Label({text, onClick, id}) {
     return(
         <LabelContainer>
             <LabelText>{text}</LabelText>
-            <LabelButton onClick={handleClick}>
-                <HiOutlineTrash />
-            </LabelButton>
+            {canBeDeleted && 
+                <LabelButton onClick={handleClick}>
+                    <HiOutlineTrash />
+                </LabelButton>}
         </LabelContainer>
     );
 }
