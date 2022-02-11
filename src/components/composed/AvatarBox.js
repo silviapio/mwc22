@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Button from "../units/Button";
-import { AvatarImg, AvatarOuterContainer, AvatarTextAndButton, AvatarMessage } from "./AvatarBox.styles";
+import AvatarImg from "../units/AvatarImg";
+import { AvatarOuterContainer, AvatarTextAndButton, AvatarMessage } from "./AvatarBox.styles";
 
 function AvatarBox({gender, onChange}) {
     const [avatarSvg, setAvatarSvg] = useState("");
@@ -32,7 +33,7 @@ function AvatarBox({gender, onChange}) {
 
     return(
         <AvatarOuterContainer>
-            <AvatarImg src={avatarSvg} />
+            <AvatarImg avatarSvg={avatarSvg} />
             <AvatarTextAndButton>
                 <AvatarMessage>Don't like what you see? Try changing the gender or hit the button below!</AvatarMessage>
             <Button text="Change it" fontSize="0.8rem" maxHeight={1.5} dark={true} onClick={e => retrieveAvatar(gender, e)}></Button>
