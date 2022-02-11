@@ -4,6 +4,7 @@ import InputText from "../units/InputText";
 import InputRadio from "../units/InputRadio";
 import AvatarBox from "../composed/AvatarBox";
 import SkillsBox from "../composed/SkillsBox";
+
 import Button from "../units/Button";
 import { isEmailInputOk, charactersLeft } from "../../utils/checkInputText";
 import { textInputsData, radioGenderData, radioFieldData, radioYearsData } from "../../assets/inputsData";
@@ -121,7 +122,14 @@ function Form() {
         }));
     }
 
-    console.log(formData.skills);
+    const handleDeleteSkill = id => {
+        console.log("delete skill ", id)
+        const updatedSkills = formData.skills.filter((skill, i) => i !== id );
+        setFormData(prevData => ({
+            ...prevData,
+            skills: updatedSkills
+        }));
+    };
 
     return(
         <>
@@ -169,7 +177,7 @@ function Form() {
                         onChange={handleInputChange}
                     />
                     <AvatarBox gender={formData.gender} onChange={handleAvatarChange}/>
-                    <SkillsBox handleAddSkill={handleAddSkill}/>
+                    <SkillsBox handleAddSkill={handleAddSkill} handleDeleteSkill={handleDeleteSkill} labels={formData.skills}/>
                 </FormInputContainer>
                 <Button text="Save" onClick={handleSubmit} />
 

@@ -1,11 +1,15 @@
 import { HiOutlineTrash } from "react-icons/hi";
 import { LabelContainer, LabelText, LabelButton } from "./Label.styles";
 
-function Label({text}) {
+function Label({text, onClick, id}) {
+    const handleClick = (e) => {
+        onClick(e, id);
+    }
+
     return(
         <LabelContainer>
             <LabelText>{text}</LabelText>
-            <LabelButton>
+            <LabelButton onClick={handleClick}>
                 <HiOutlineTrash />
             </LabelButton>
         </LabelContainer>

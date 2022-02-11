@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import InputText from "../units/InputText";
 import Button from "../units/Button";
+import Label from "../units/Label";
 import { charactersLeft } from "../../utils/checkInputText";
 import { SkillsBoxContainer, SkillsInputContainer } from "./SkillsBox.styles";
 
-function SkillsBox({handleAddSkill}) {
-    const CHAR_ALLOWED_INPUT = 25;
+function SkillsBox({handleAddSkill, handleDeleteSkill, labels}) {
+    const CHAR_ALLOWED_INPUT = 22;
     const [currentSkill, setCurrentSkill] = useState({
         text: "",
         hasError: false
@@ -49,6 +50,11 @@ function SkillsBox({handleAddSkill}) {
         }
     }
 
+    const onDeleteSkill = (e, id) => {
+        e.preventDefault();
+        handleDeleteSkill(id);
+    }
+
     return(
         <SkillsBoxContainer>
             <SkillsInputContainer>
@@ -64,9 +70,11 @@ function SkillsBox({handleAddSkill}) {
                     textOverFlow={currentSkill.hasError}
                     onChange={handleSkillChange}
                     onKeyPress={handleEnterPress}
+                    className="skills-input"
                 />
                 <Button text="Add" dark="true" className="button--add-skill" onClick={handleAdd} disabled={buttonDisabled} />
             </SkillsInputContainer>
+            {labels.map((skill, i) => <Label key={i} text={skill} id={i} onClick={onDeleteSkill}/>)}
         </SkillsBoxContainer>
     );
 }
