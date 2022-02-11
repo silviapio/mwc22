@@ -14,3 +14,9 @@ export const SkillsInputContainer = styled.div`
     justify-content: flex-start;
     align-items: center;
 `;
+
+export const SkillLabelsContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+`;

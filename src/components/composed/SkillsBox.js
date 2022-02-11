@@ -3,7 +3,7 @@ import InputText from "../units/InputText";
 import Button from "../units/Button";
 import Label from "../units/Label";
 import { charactersLeft } from "../../utils/checkInputText";
-import { SkillsBoxContainer, SkillsInputContainer } from "./SkillsBox.styles";
+import { SkillsBoxContainer, SkillsInputContainer, SkillLabelsContainer } from "./SkillsBox.styles";
 
 function SkillsBox({handleAddSkill, handleDeleteSkill, labels}) {
     const CHAR_ALLOWED_INPUT = 22;
@@ -74,7 +74,9 @@ function SkillsBox({handleAddSkill, handleDeleteSkill, labels}) {
                 />
                 <Button text="Add" dark="true" className="button--add-skill" onClick={handleAdd} disabled={buttonDisabled} />
             </SkillsInputContainer>
+            <SkillLabelsContainer>
             {labels.map((skill, i) => <Label key={i} text={skill} id={i} onClick={onDeleteSkill}/>)}
+            </SkillLabelsContainer>
         </SkillsBoxContainer>
     );
 }
