@@ -6,6 +6,9 @@ export const InputContainer = styled.div`
     align-items: ${props => props.left ? "flex-start" : "center"};
     justify-items: center;
     margin-bottom: 18px;
+    &.container--skills-input {
+        margin-bottom: 5px;
+    }
 `;
 
 export const StyledLabel = styled.label`
@@ -26,6 +29,9 @@ export const StyledInput = styled.input`
     }
     &:focus-visible { //check if it's ok for all browsers
         outline: 1px solid ${props => props.outlineRed ? "red" : "var(--color-blue)"};
+    }
+    &.input--skills-input {
+        min-width: 200px;
     }
 `;
 
