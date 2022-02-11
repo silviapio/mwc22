@@ -22,5 +22,13 @@ export const StyledButton = styled.button`
         align-self: flex-start;
         margin-top: 1.4rem;
         margin-left: 0.5rem;
+        &:disabled {
+            background-color: var(--color-gray);
+            color: var(--color-white);
+            border-color: var(--color-white);
+            &:hover {
+                cursor: not-allowed;
+            }
+        }
     }
 `;

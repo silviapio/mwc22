@@ -31,6 +31,8 @@ function Form() {
     ]));
     const [savedData, setSavedData] = useState(JSON.stringify(localStorage.getItem("savedData")) || ""); 
 
+    console.log("rerender")
+
     const checkOnBlur = e => {
         const field = e.target.name;
         if (field === "email") {
@@ -111,10 +113,14 @@ function Form() {
         );
     };
 
+    const handleAddSkill = str => {
+        console.log(str);
+    }
+
     return(
         <>
-            <FormOuterContainer onSubmit={handleSubmit}>
-                <Title text="Basic Data" />
+            <FormOuterContainer onSubmit={handleSubmit} autoComplete="off">
+                <Title text="Your Data" />
                 <FormInputContainer>
                     {textInputsData.map((input, i) => 
                         <InputText
@@ -157,7 +163,7 @@ function Form() {
                         onChange={handleInputChange}
                     />
                     <AvatarBox gender={formData.gender} onChange={handleAvatarChange}/>
-                    <SkillsBox />
+                    <SkillsBox handleAddSkill={handleAddSkill}/>
                 </FormInputContainer>
                 <Button text="Save" onClick={handleSubmit} />
 

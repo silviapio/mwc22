@@ -1,15 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InputText from "../units/InputText";
 import Button from "../units/Button";
 import { charactersLeft } from "../../utils/checkInputText";
 import { SkillsBoxContainer, SkillsInputContainer } from "./SkillsBox.styles";
 
-function SkillsBox() {
+function SkillsBox({handleAddSkill}) {
     const CHAR_ALLOWED_INPUT = 25;
     const [currentSkill, setCurrentSkill] = useState({
         text: "",
         hasError: false
     });
+    const [buttonDisabled, setButtonDisabled] = useState(true);
+
+    useEffect(() => {
+        if (!currentSkill.text || currentSkill.hasError) {
+            setButtonDisabled(true);
+        } else {
+            setButtonDisabled(false);
+        }
+    }, [currentSkill])
 
     const handleSkillChange = e => {
         const charLeft = charactersLeft(CHAR_ALLOWED_INPUT, e.target.value);
@@ -18,6 +27,22 @@ function SkillsBox() {
             hasError: charLeft < 0
         }
         setCurrentSkill(updatedSkill);
+    }
+
+    const handleAdd = e => {
+        e.preventDefault();
+        if (currentSkill.text) {
+            handleAddSkill(currentSkill.text)
+        } else {
+            return;
+        }
+    };
+
+    const handleEnterPress = e => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            handleAdd(e);
+        }
     }
 
     return(
@@ -34,51 +59,12 @@ function SkillsBox() {
                     messageText={`${charactersLeft(CHAR_ALLOWED_INPUT, currentSkill.text)} characters left`}
                     textOverFlow={currentSkill.hasError}
                     onChange={handleSkillChange}
+                    onKeyPress={handleEnterPress}
                 />
-                <Button text="Add" dark="true" className="button--add-skill" />
+                <Button text="Add" dark="true" className="button--add-skill" onClick={handleAdd} disabled={buttonDisabled} />
             </SkillsInputContainer>
         </SkillsBoxContainer>
     );
 }
 
 export default SkillsBox;
-
-/* left, id, value, labelText, placeholderText, messageText, displayMessage, onChange, onBlur, type, textOverFlow}) {
-
-    const inputField = type => {
-        if (type === "text") {
-            return <StyledInput 
-                        id={id} 
-                        name={id}
-                        type={type} 
-                        value={value}
-                        placeholder={placeholderText} 
-                        outlineRed={displayMessage}
-                        onBlur={onBlur} 
-                        onChange={onChange}
-                    />;
-        } else if (type === "textarea") {
-            return <StyledTextArea 
-                        id={id} 
-                        name={id}
-                        type={type} 
-                        value={value}
-                        placeholder={placeholderText} 
-                        onBlur={onBlur} 
-                        onChange={onChange}
-                        textOverFlow={textOverFlow}
-                    />;
-        }
-    };
-
-    return(
-        <InputContainer  left={left}>
-            <StyledLabel htmlFor={id}>
-            {labelText}
-            </StyledLabel>
-                {inputField(type)}
-            <StyledSmallMessage show={displayMessage} type={type} textOverFlow={textOverFlow}>
-                {messageText}
-            </StyledSmallMessage>
-        </InputContainer>
-*/
