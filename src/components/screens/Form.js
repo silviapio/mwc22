@@ -1,10 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Title from "../units/Title";
 import InputText from "../units/InputText";
 import InputRadio from "../units/InputRadio";
 import AvatarBox from "../composed/AvatarBox";
 import SkillsBox from "../composed/SkillsBox";
-
 import Button from "../units/Button";
 import { isEmailInputOk, charactersLeft } from "../../utils/checkInputText";
 import { textInputsData, radioGenderData, radioFieldData, radioYearsData } from "../../assets/inputsData";
@@ -12,7 +12,7 @@ import { FormOuterContainer, FormInputContainer } from "./Form.styles";
 
 function Form() {
     const CHAR_ALLOWED_DESC = 160;
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState( JSON.parse(localStorage.getItem("savedData")) ||{
         name: "",
         email: "",
         city: "",
@@ -29,10 +29,39 @@ function Form() {
         ["email", { error: true, visible: false }],
         ["city", { error: false, visible: false }],
         ["country", { error: true, visible: false }],
-        ["description", { error: false, visible: true }],
-        ["skills", { error: true, visible: false }]
+        ["description", { error: false, visible: true }]
     ]));
-    const [savedData, setSavedData] = useState(JSON.stringify(localStorage.getItem("savedData")) || ""); 
+
+    const formHasError = () => {
+        let errorFound = false;
+        const updatedErrors = new Map(inputErrors);
+        inputErrors.forEach((value, key) => {
+            if (value.error) {
+                errorFound = true;
+                updatedErrors.set(key, {error: true, visible: true});
+            }
+        });
+        setInputErrors(updatedErrors);
+        return errorFound;
+    };
+
+    const navigate = useNavigate(); 
+    const goToProfile = () =>{ 
+        const path = `/profile`; 
+        navigate(path);
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        const errorFound = formHasError();
+        if (errorFound) {
+            return;
+        } else {
+            localStorage.setItem("savedData", JSON.stringify(formData));
+            goToProfile();
+        }
+        
+    }
 
     const checkOnBlur = e => {
         const field = e.target.name;
@@ -66,10 +95,7 @@ function Form() {
         }
     }
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        console.log("submit")
-    }
+
 
     const handleInputChange = e => {
         if (e.target.type === "text" || e.target.type === "textarea" || e.target.type === "radio") {
