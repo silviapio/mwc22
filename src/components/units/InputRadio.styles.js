@@ -9,7 +9,7 @@ export const RadioContainer = styled.div`
 `;
 
 export const RadioP = styled.p`
-    font-size: 0.9rem;
+    font-size: 1.2rem;
 `;
 
 export const RadioAllOptionsContainer = styled.div`
@@ -28,12 +28,12 @@ export const RadioCheck = styled.input`
 
 export const RadioLabel = styled.label`
     margin-left: 4px;
-    font-size: 0.85rem;
+    font-size: 1.1rem;
 `;
 
 export const StyledSmallMessage = styled.small`
     color: var(--color-blue);
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-style: italic;
     font-weight: 300;
 `;

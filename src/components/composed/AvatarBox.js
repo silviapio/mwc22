@@ -52,7 +52,7 @@ function AvatarBox({gender, onChange, selectedImg}) {
                     { fetchError ? 
                     "Network error: no other images available"
                     :
-                    "Don't like what you see? Try changing the gender and/or hit the button below!"}
+                    "Don't like it? Change gender and/or hit the button below!"}
                 </AvatarMessage>
             <Button 
                 text={ fetchError ? "Try again" : "Change it"} 
@@ -60,6 +60,7 @@ function AvatarBox({gender, onChange, selectedImg}) {
                 maxHeight={1.5} 
                 dark={true} 
                 onClick={e => retrieveAvatar(gender, e)}
+                className="button--change-avatar"
             />
             </AvatarTextAndButton>
         </AvatarOuterContainer>

@@ -57,13 +57,9 @@ function Profile() {
         }
     };
 
-    const handleEdit = () => {
-        console.log("edit");
-    }
-
     return(
         <ProfileOuterContainer>
-            <Title text="Profile Summary"/>
+            <Title text="Profile Summary" className="title--profile"/>
             { profileData ?
                 <>
                     <AvatarImg avatarSvg={profileData.avatarUrl} />

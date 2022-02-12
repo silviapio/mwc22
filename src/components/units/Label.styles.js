@@ -5,6 +5,7 @@ export const LabelContainer = styled.div`
     justify-content: space-evenly;
     min-width: 3rem;
     margin: 2px;
+    padding: 1px 5px;
     border-radius: 5px;
     background-color: var(--color-blue);
     &:first-child {
@@ -14,7 +15,6 @@ export const LabelContainer = styled.div`
 
 export const LabelText = styled.p`
     color: var(--color-white);
-    margin-left: 5px;
 `;
 
 export const LabelButton = styled.button`
@@ -23,7 +23,7 @@ export const LabelButton = styled.button`
     border: none;
     border-radius: 5px;
     font-size: 1.2rem;
-    padding: 1px 2px;
+    padding: 1px 0px 1px 2px;
     margin-left: 3px;
     &:hover {
         cursor: pointer;

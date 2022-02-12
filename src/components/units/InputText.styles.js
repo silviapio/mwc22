@@ -12,7 +12,7 @@ export const InputContainer = styled.div`
 `;
 
 export const StyledLabel = styled.label`
-    font-size: 0.9rem;
+    font-size: 1.2rem;
 `;
 
 export const StyledInput = styled.input`
@@ -22,7 +22,7 @@ export const StyledInput = styled.input`
     border-radius: 5px;
     padding: 5px;
     color: var(--color-blue);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     &::placeholder {
         color: var(--color-gray);
         font-weight: 500;
@@ -43,7 +43,7 @@ export const StyledTextArea = styled.textarea`
     border-radius: 5px;
     padding: 5px;
     color: var(--color-blue);
-    font-size: 0.8rem;
+    font-size: 1rem;
     &::placeholder {
         color: var(--color-gray);
         font-weight: 500;
@@ -56,7 +56,7 @@ export const StyledTextArea = styled.textarea`
 export const StyledSmallMessage = styled.small`
     display: ${props => props.show ? "block" : "none"};
     color: ${props => props.error ? "red" : "currentColor" };
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-style: italic;
     font-weight: 300;
 `;

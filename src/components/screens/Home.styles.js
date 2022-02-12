@@ -13,8 +13,7 @@ export const WelcomeContainer = styled.div`
 `;
 
 export const StyledHomeP = styled.p`
-    //margin-top: 0.9rem;
     line-height: 1.5rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-align: center;
 `;
