@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Title from "../units/Title";
 import InputText from "../units/InputText";
@@ -7,7 +7,7 @@ import AvatarBox from "../composed/AvatarBox";
 import SkillsBox from "../composed/SkillsBox";
 import Button from "../units/Button";
 import { isEmailInputOk, charactersLeft } from "../../utils/checkInputText";
-import { syncWithLocalStorage } from "../../utils/localStorageUtils";
+import { syncWithLocalStorage, isUserRegistered } from "../../utils/localStorageUtils";
 import { textInputsData, radioGenderData, radioFieldData, radioYearsData } from "../../assets/inputsData";
 import { FormOuterContainer, FormInputContainer } from "./Form.styles";
 
@@ -25,14 +25,24 @@ function Form() {
         yearsExp: "def",
         skills: []
     });
-    
-    const [inputErrors, setInputErrors] = useState(new Map([
-        ["name", { error: true, visible: false }],
-        ["email", { error: true, visible: false }],
-        ["city", { error: false, visible: false }],
-        ["country", { error: true, visible: false }],
-        ["description", { error: false, visible: true }]
-    ]));
+
+    const [inputErrors, setInputErrors] = useState( isUserRegistered("savedData") ?
+        new Map([
+            ["name", { error: false, visible: false }],
+            ["email", { error: false, visible: false }],
+            ["city", { error: false, visible: false }],
+            ["country", { error: false, visible: false }],
+            ["description", { error: false, visible: true }]
+        ])
+        :
+        new Map([
+            ["name", { error: true, visible: false }],
+            ["email", { error: true, visible: false }],
+            ["city", { error: false, visible: false }],
+            ["country", { error: true, visible: false }],
+            ["description", { error: false, visible: true }]
+        ])
+    );
 
     const formHasError = () => {
         let errorFound = false;
@@ -60,6 +70,7 @@ function Form() {
             return;
         } else {
             localStorage.setItem("savedData", JSON.stringify(formData));
+            console.log(localStorage.getItem("savedData"))
             goToProfile();
         }
         

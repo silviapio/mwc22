@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Title from "../units/Title";
 import ProfileItem from "../units/ProfileItem";
@@ -12,14 +12,13 @@ import { ProfileOuterContainer, SkillsContainer, ProfileErrorContainer } from ".
 
 function Profile() {
     const [profileData, setProfileData] = useState(syncWithLocalStorage("savedData") || "");
-
     
     const getRadioText = (savedValue, optionsArr) => {
         return optionsArr.find(item => item.id === savedValue).text;
-    };    
+    };
 
-    const getProfileDataItems = () => {
-        if(!profileData) {
+    useEffect(()=> {
+        if (!profileData) {
             return;
         }
         const genderText = getRadioText(profileData.gender, radioGenderData.options);
@@ -31,7 +30,12 @@ function Profile() {
             field: fieldText,
             yearsExp: yearsText
         }));
+    }, [])
 
+        
+
+    console.log(profileData)
+    const getProfileDataItems = () => {
         return profileDescriptionText.map((item, i) => {
             let text;
             if (!profileData[item.key]) {
@@ -60,7 +64,7 @@ function Profile() {
                     <AvatarImg avatarSvg={profileData.avatarUrl} />
                     {getProfileDataItems()}
                     <SkillsContainer>
-                    {getProfileLabels}
+                    {getProfileLabels()}
                     </SkillsContainer>
                 </>
                 : 
