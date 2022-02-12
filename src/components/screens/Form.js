@@ -7,12 +7,13 @@ import AvatarBox from "../composed/AvatarBox";
 import SkillsBox from "../composed/SkillsBox";
 import Button from "../units/Button";
 import { isEmailInputOk, charactersLeft } from "../../utils/checkInputText";
+import { syncWithLocalStorage } from "../../utils/localStorageUtils";
 import { textInputsData, radioGenderData, radioFieldData, radioYearsData } from "../../assets/inputsData";
 import { FormOuterContainer, FormInputContainer } from "./Form.styles";
 
 function Form() {
     const CHAR_ALLOWED_DESC = 160;
-    const [formData, setFormData] = useState( JSON.parse(localStorage.getItem("savedData")) ||{
+    const [formData, setFormData] = useState(syncWithLocalStorage("savedData") || {
         name: "",
         email: "",
         city: "",
@@ -24,6 +25,7 @@ function Form() {
         yearsExp: "def",
         skills: []
     });
+    
     const [inputErrors, setInputErrors] = useState(new Map([
         ["name", { error: true, visible: false }],
         ["email", { error: true, visible: false }],

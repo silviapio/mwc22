@@ -101,3 +101,42 @@ export const radioYearsData = {
         }
     ]
 }
+
+export const profileDescriptionText = [
+    {
+        key: "name",
+        text: "Your name:"
+    }, 
+    {
+        key: "email",
+        text: "Your email:"
+    },
+    {
+        key: "city",
+        text: "Your city:"
+    },
+    {
+        key: "country",
+        text: "Your country:"
+    },
+    {
+        key: "description",
+        text: "Some words to describe yourself:"
+    },
+    {
+        key: "gender",
+        text: "You identified as:"
+    },
+    {
+        key: "field",
+        text: "Your field of expertise:"
+    },
+    {
+        key: "yearsExp",
+        text: "You have this many years of experience:"
+    },
+    {
+        key: "skills",
+        text: "Your skills:"
+    }
+]
