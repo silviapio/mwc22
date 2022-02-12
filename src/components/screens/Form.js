@@ -73,7 +73,6 @@ function Form() {
             return;
         } else {
             localStorage.setItem("savedData", JSON.stringify(formData));
-            console.log(localStorage.getItem("savedData"))
             goToPage("profile");
         }
         
@@ -163,7 +162,6 @@ function Form() {
     };
 
     const handleAddSkill = str => {
-        console.log(str);
         setFormData(prevData => ({
             ...prevData,
             skills: [...prevData.skills, str]
@@ -171,7 +169,6 @@ function Form() {
     }
 
     const handleDeleteSkill = id => {
-        console.log("delete skill ", id)
         const updatedSkills = formData.skills.filter((skill, i) => i !== id );
         setFormData(prevData => ({
             ...prevData,
