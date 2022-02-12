@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-export const MainContainer = styled.main`
-    width: 85%;
-    height: 90%;
+export const MainContainer = styled.div`
+    min-height: 100vh;
     min-width: 280px;
-    max-width: 400px;
-    margin: 2rem 2rem 0 2rem;
+    max-width: 600px;
+    margin: 0;
     background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
 `;

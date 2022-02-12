@@ -6,6 +6,7 @@ import InputRadio from "../units/InputRadio";
 import AvatarBox from "../composed/AvatarBox";
 import SkillsBox from "../composed/SkillsBox";
 import Button from "../units/Button";
+import Footer from "../units/Footer";
 import { isEmailInputOk, charactersLeft } from "../../utils/checkInputText";
 import { syncWithLocalStorage, isUserRegistered } from "../../utils/localStorageUtils";
 import { textInputsData, radioGenderData, radioFieldData, radioYearsData } from "../../assets/inputsData";
@@ -208,7 +209,6 @@ function Form() {
                         options={radioFieldData.options}
                         value={formData.field}
                         question={radioFieldData.question}
-                        infoText="..."
                         onChange={handleInputChange}
                     />
                     <InputRadio 
@@ -216,7 +216,6 @@ function Form() {
                         options={radioYearsData.options}
                         value={formData.yearsExp}
                         question={radioYearsData.question}
-                        infoText="..."
                         onChange={handleInputChange}
                     />
                     <InputRadio
@@ -227,14 +226,15 @@ function Form() {
                         infoText="we'll store it only for avatar creation"
                         onChange={handleInputChange}
                     />
-                    <AvatarBox gender={formData.gender} onChange={handleAvatarChange} selectedImg={formData.avatarUrl}/>
                     <SkillsBox handleAddSkill={handleAddSkill} handleDeleteSkill={handleDeleteSkill} labels={formData.skills}/>
+                    <AvatarBox gender={formData.gender} onChange={handleAvatarChange} selectedImg={formData.avatarUrl}/>                
                 </FormInputContainer>
                 <BottomButtonsContainer>
                     <Button text="Delete" onClick={handleDeleteAll} className={"button--delete-all"} dark={true}/>
                     <Button text="Save" onClick={handleSubmit} />
                 </BottomButtonsContainer>
             </FormOuterContainer>
+            <Footer />
         </>
     );
 }

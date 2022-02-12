@@ -1,10 +1,16 @@
 import styled from "styled-components";
 
 export const ProfileOuterContainer = styled.div`
-    height: 96%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
     overflow-y: auto;
-    padding: 20px 10px 10px 10px;
-    border: 1px solid var(--color-white);
+    background-color: var(--color-gray);
+`;
+
+export const ProfileInnerContainer = styled.div`
+    min-height: 90%;
+    padding: 20px 10px 10px 22px;
     background-color: var(--color-gray);
 `;
 

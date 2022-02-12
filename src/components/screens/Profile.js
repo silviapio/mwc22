@@ -5,9 +5,10 @@ import ProfileItem from "../units/ProfileItem";
 import AvatarImg from "../units/AvatarImg";
 import Label from "../units/Label";
 import Button from "../units/Button";
+import Footer from "../units/Footer";
 import { syncWithLocalStorage } from "../../utils/localStorageUtils";
 import { radioGenderData, radioFieldData, radioYearsData, profileDescriptionText } from "../../assets/inputsData";
-import { ProfileOuterContainer, SkillsContainer, ProfileErrorContainer } from "./Profile.styles";
+import { ProfileOuterContainer, SkillsContainer, ProfileErrorContainer, ProfileInnerContainer } from "./Profile.styles";
 
 
 function Profile() {
@@ -58,7 +59,9 @@ function Profile() {
     };
 
     return(
+        <>
         <ProfileOuterContainer>
+            <ProfileInnerContainer>
             <Title text="Profile Summary" className="title--profile"/>
             { profileData ?
                 <>
@@ -81,7 +84,11 @@ function Profile() {
                     </ProfileErrorContainer>
                 </>
             }
+            </ProfileInnerContainer>
+            <Footer />
         </ProfileOuterContainer>
+        
+        </>
     );
 }
 

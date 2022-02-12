@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const WelcomeContainer = styled.div`
-    min-height: 380px;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

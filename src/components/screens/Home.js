@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Title from "../units/Title";
 import PlainIcon from "../units/PlainIcon";
 import Button from "../units/Button";
+import Footer from "../units/Footer";
 import { isUserRegistered } from "../../utils/localStorageUtils";
 import { WelcomeContainer, StyledHomeP } from "./Home.styles";
 import { HiOutlineThumbUp } from "react-icons/hi";
@@ -33,6 +34,7 @@ function Home() {
                         <Button text={userRegistered ? "SEE PROFILE" : "NEW PROFILE"} />
                     </Link>
                 </WelcomeContainer>
+                <Footer />
         </>
     );
 }
