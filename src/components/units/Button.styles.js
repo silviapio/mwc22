@@ -31,4 +31,14 @@ export const StyledButton = styled.button`
             }
         }
     }
+    &.button--delete-all {
+        background-color: var(--color-danger);
+        color: var(--color-gray);
+        border-color: var(--color-gray);
+        font-size: 0.9rem;
+        padding: 3px 5px;
+        &:hover {
+            background-color: var(--color-red-dark);
+        }
+    }
 `;

@@ -9,3 +9,9 @@ export const FormOuterContainer = styled.form`
 export const FormInputContainer = styled.div`
     margin: 20px 0 0 0;
 `;
+
+export const BottomButtonsContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;

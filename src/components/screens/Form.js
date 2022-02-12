@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Title from "../units/Title";
 import InputText from "../units/InputText";
@@ -9,7 +9,7 @@ import Button from "../units/Button";
 import { isEmailInputOk, charactersLeft } from "../../utils/checkInputText";
 import { syncWithLocalStorage, isUserRegistered } from "../../utils/localStorageUtils";
 import { textInputsData, radioGenderData, radioFieldData, radioYearsData } from "../../assets/inputsData";
-import { FormOuterContainer, FormInputContainer } from "./Form.styles";
+import { FormOuterContainer, FormInputContainer, BottomButtonsContainer } from "./Form.styles";
 
 function Form() {
     const CHAR_ALLOWED_DESC = 160;
@@ -58,10 +58,10 @@ function Form() {
     };
 
     const navigate = useNavigate(); 
-    const goToProfile = () =>{ 
-        const path = `/profile`; 
+    const goToPage = page => { 
+        const path = `/${page}`; 
         navigate(path);
-    }
+    };
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -71,7 +71,7 @@ function Form() {
         } else {
             localStorage.setItem("savedData", JSON.stringify(formData));
             console.log(localStorage.getItem("savedData"))
-            goToProfile();
+            goToPage("profile");
         }
         
     }
@@ -106,9 +106,7 @@ function Form() {
             }
             setInputErrors(updatedErrors);
         }
-    }
-
-
+    };
 
     const handleInputChange = e => {
         if (e.target.type === "text" || e.target.type === "textarea" || e.target.type === "radio") {
@@ -170,6 +168,12 @@ function Form() {
         }));
     };
 
+    const handleDeleteAll = e => {
+        e.preventDefault()
+        localStorage.removeItem("savedData");
+        goToPage("");
+    };
+
     return(
         <>
             <FormOuterContainer onSubmit={handleSubmit} autoComplete="off">
@@ -218,8 +222,10 @@ function Form() {
                     <AvatarBox gender={formData.gender} onChange={handleAvatarChange}/>
                     <SkillsBox handleAddSkill={handleAddSkill} handleDeleteSkill={handleDeleteSkill} labels={formData.skills}/>
                 </FormInputContainer>
+                <BottomButtonsContainer>
                 <Button text="Save" onClick={handleSubmit} />
-
+                <Button text="Delete and Exit" onClick={handleDeleteAll} className={"button--delete-all"} dark={true}/>
+                </BottomButtonsContainer>
             </FormOuterContainer>
         </>
     );
