@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ProfileOuterContainer = styled.form`
+export const ProfileOuterContainer = styled.div`
     height: 96%;
     overflow-y: auto;
     padding: 20px 10px 10px 10px;

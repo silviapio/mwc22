@@ -32,14 +32,11 @@ function Profile() {
         }));
     }, [])
 
-        
-
-    console.log(profileData)
     const getProfileDataItems = () => {
         return profileDescriptionText.map((item, i) => {
             let text;
             if (!profileData[item.key]) {
-                text = "-";
+                text = "---";
             } else if (item.key === "skills") {
                 text = "";
             } else {
@@ -53,8 +50,16 @@ function Profile() {
         if (!profileData) {
             return;
         }
-        profileData.skills.map((skill, i) => <Label key={i} text={skill} canBeDeleted={false}/>)
+        if (profileData.skills.length === 0) {
+            return <p>---</p>
+        } else {
+            return profileData.skills.map((skill, i) => <Label key={i} text={skill} canBeDeleted={false}/>);
+        }
     };
+
+    const handleEdit = () => {
+        console.log("edit");
+    }
 
     return(
         <ProfileOuterContainer>
@@ -66,6 +71,9 @@ function Profile() {
                     <SkillsContainer>
                     {getProfileLabels()}
                     </SkillsContainer>
+                    <Link to="/form">
+                        <Button text="Back and Edit" className="button--edit-profile" />
+                    </Link>
                 </>
                 : 
                 <>

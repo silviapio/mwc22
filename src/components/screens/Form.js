@@ -223,8 +223,8 @@ function Form() {
                     <SkillsBox handleAddSkill={handleAddSkill} handleDeleteSkill={handleDeleteSkill} labels={formData.skills}/>
                 </FormInputContainer>
                 <BottomButtonsContainer>
-                <Button text="Save" onClick={handleSubmit} />
-                <Button text="Delete and Exit" onClick={handleDeleteAll} className={"button--delete-all"} dark={true}/>
+                    <Button text="Delete" onClick={handleDeleteAll} className={"button--delete-all"} dark={true}/>
+                    <Button text="Save" onClick={handleSubmit} />
                 </BottomButtonsContainer>
             </FormOuterContainer>
         </>
