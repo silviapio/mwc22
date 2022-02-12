@@ -1,8 +1,8 @@
 import {TitleText} from "./Title.styles";
 
-function Title(props) {
+function Title({forwardRef, ...props}) {
     return(
-            <TitleText>
+            <TitleText ref={forwardRef}>
                 {props.text}
             </TitleText>
     )

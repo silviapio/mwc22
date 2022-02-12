@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Title from "../units/Title";
 import InputText from "../units/InputText";
@@ -44,6 +44,8 @@ function Form() {
         ])
     );
 
+    const topEl = useRef(null);
+
     const formHasError = () => {
         let errorFound = false;
         const updatedErrors = new Map(inputErrors);
@@ -67,6 +69,7 @@ function Form() {
         e.preventDefault();
         const errorFound = formHasError();
         if (errorFound) {
+            topEl.current.scrollIntoView();
             return;
         } else {
             localStorage.setItem("savedData", JSON.stringify(formData));
@@ -185,7 +188,7 @@ function Form() {
     return(
         <>
             <FormOuterContainer onSubmit={handleSubmit} autoComplete="off">
-                <Title text="Your Data" />
+                <Title text="Your Data"  forwardRef={topEl}/>
                 <FormInputContainer>
                     {textInputsData.map((input, i) => 
                         <InputText
