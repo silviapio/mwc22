@@ -3,13 +3,17 @@ import Button from "../units/Button";
 import AvatarImg from "../units/AvatarImg";
 import { AvatarOuterContainer, AvatarTextAndButton, AvatarMessage } from "./AvatarBox.styles";
 
-function AvatarBox({gender, onChange}) {
-    const [avatarSvg, setAvatarSvg] = useState("");
+function AvatarBox({gender, onChange, selectedImg}) {
+    const [avatarSvg, setAvatarSvg] = useState(selectedImg || "");
 
     const randomID = () => ( "" + Math.random().toString(36).substring(2, 6));
 
     useEffect(() => {
-        retrieveAvatar(gender);
+        if(selectedImg) {
+            return;
+        } else {
+            retrieveAvatar(gender);
+        }
     }, [gender])
 
     useEffect(() => {
@@ -35,7 +39,7 @@ function AvatarBox({gender, onChange}) {
         <AvatarOuterContainer>
             <AvatarImg avatarSvg={avatarSvg} />
             <AvatarTextAndButton>
-                <AvatarMessage>Don't like what you see? Try changing the gender or hit the button below!</AvatarMessage>
+                <AvatarMessage>Don't like what you see? Try changing the gender and/or hit the button below!</AvatarMessage>
             <Button text="Change it" fontSize="0.8rem" maxHeight={1.5} dark={true} onClick={e => retrieveAvatar(gender, e)}></Button>
             </AvatarTextAndButton>
         </AvatarOuterContainer>

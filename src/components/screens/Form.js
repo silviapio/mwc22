@@ -110,10 +110,18 @@ function Form() {
 
     const handleInputChange = e => {
         if (e.target.type === "text" || e.target.type === "textarea" || e.target.type === "radio") {
-            setFormData(prevData => ({
-                ...prevData,
-                [e.target.name] : e.target.value
-            }))
+            if (e.target.name === "gender") {
+                setFormData(prevData => ({
+                    ...prevData,
+                    [e.target.name] : e.target.value,
+                    avatarUrl: ""
+                }))
+            } else {
+                setFormData(prevData => ({
+                    ...prevData,
+                    [e.target.name] : e.target.value
+                }));
+            }            
         } 
         if (e.target.type === "textarea") {
             const charLeft = charactersLeft(CHAR_ALLOWED_DESC, e.target.value);
@@ -216,10 +224,10 @@ function Form() {
                         options={radioGenderData.options}
                         value={formData.gender}
                         question={radioGenderData.question}
-                        infoText="we'll use it only for avatar creation"
+                        infoText="we'll store it only for avatar creation"
                         onChange={handleInputChange}
                     />
-                    <AvatarBox gender={formData.gender} onChange={handleAvatarChange}/>
+                    <AvatarBox gender={formData.gender} onChange={handleAvatarChange} selectedImg={formData.avatarUrl}/>
                     <SkillsBox handleAddSkill={handleAddSkill} handleDeleteSkill={handleDeleteSkill} labels={formData.skills}/>
                 </FormInputContainer>
                 <BottomButtonsContainer>
