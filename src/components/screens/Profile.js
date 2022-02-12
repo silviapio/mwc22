@@ -77,7 +77,8 @@ function Profile() {
                 : 
                 <>
                     <ProfileErrorContainer>
-                    <p>Sorry, no data available ¯\_(ツ)_/¯</p>
+                    <p>Sorry, no data available</p>
+                    <p>¯\_(ツ)_/¯</p>
                     <Link to="/">
                         <Button text="Back to Home" />
                     </Link>
@@ -85,7 +86,7 @@ function Profile() {
                 </>
             }
             </ProfileInnerContainer>
-            <Footer />
+            <Footer className="footer--gray"/>
         </ProfileOuterContainer>
         
         </>
