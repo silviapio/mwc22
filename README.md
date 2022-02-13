@@ -33,6 +33,8 @@ This web application allows the user to:
 * Github: [@silviapio](https://github.com/silviapio)
 * LinkedIn: [@silvia-piovesan](https://linkedin.com/in/silvia-piovesan)
 
+Feedback is very welcome, please get in touch if you want to let me know what you think of this project!
+
 ## 🙏🏽 Credits
 
 * Color Palette: [ColorHub](https://www.colorhub.app), palette: Wario
