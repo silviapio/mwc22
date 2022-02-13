@@ -34,8 +34,8 @@ export const StyledButton = styled.button`
     }
     &.button--delete-all {
         background-color: var(--color-danger);
-        color: var(--color-gray);
-        border-color: var(--color-gray);
+        color: var(--color-white);
+        border-color: var(--color-danger);
         margin-right: 30px;
         &:hover {
             background-color: var(--color-red-dark);
