@@ -1,6 +1,6 @@
 import { StyledBar, StyledLogo } from "./LogoBar.styles";
-import logoMWC from "../../assets/MWC_big.png";
-import logoBDT from "../../assets/BDT_big.png";
+import logoMWC from "../../assets/images/MWC_big.png";
+import logoBDT from "../../assets/images/BDT_big.png";
 
 function LogoBar() {
     return(

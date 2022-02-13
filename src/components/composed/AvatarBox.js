@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Button from "../units/Button";
 import AvatarImg from "../units/AvatarImg";
-import defaultAvatar from "../../assets/defaultAvatar.svg";
+import defaultAvatar from "../../assets/images/defaultAvatar.svg";
 import { AvatarOuterContainer, AvatarTextAndButton, AvatarMessage } from "./AvatarBox.styles";
 
 function AvatarBox({gender, onChange, selectedImg}) {

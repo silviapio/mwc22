@@ -238,7 +238,7 @@ function Form() {
                 </FormInputContainer>
                 <BottomButtonsContainer>
                     <Button text="Reset Form" onClick={handleDeleteAll} className={"button--delete-all"} dark={true}/>
-                    <Button text="Create Profile" onClick={handleSubmit} />
+                    <Button text="Save Data" onClick={handleSubmit} />
                 </BottomButtonsContainer>
             </FormOuterContainer>
             <Footer />
