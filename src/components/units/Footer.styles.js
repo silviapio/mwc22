@@ -9,8 +9,8 @@ export const StyledFooter = styled.footer`
     text-align: center;
     line-height: 1;
     font-size: 0.8rem;
-    &.footer--profile {
-        background-color: var(--color-white);
+    p:last-child {
+        margin-bottom: 0.3rem;
     }
 `;
 

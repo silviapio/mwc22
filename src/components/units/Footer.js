@@ -1,4 +1,4 @@
-import { StyledFooter, StyledLinks, StyledSmall } from "./Footer.styles";
+import { StyledFooter, StyledLinks } from "./Footer.styles";
 import { AiFillLinkedin, AiFillGithub, AiOutlineTwitter, AiTwotoneMail } from "react-icons/ai";
 
 function Footer(props) {

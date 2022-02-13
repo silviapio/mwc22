@@ -2,14 +2,14 @@ export const textInputsData = [
     {
         id: "name",
         type: "text",
-        labelText: "Full name",
+        labelText: "Full name *",
         placeholderText: "ex: Anna Martinez",
         messageText: "name can't be empty"
     },
     {
         id: "email",
         type: "text",
-        labelText: "Email",
+        labelText: "Email *",
         placeholderText: "ex: youremail@gmail.com",
         messageText: "please enter a valid email",
         checkOnBlur: true
@@ -23,7 +23,7 @@ export const textInputsData = [
     {
         id: "country",
         type: "text",
-        labelText: "Country",
+        labelText: "Country *",
         placeholderText: "ex: Spain",
         messageText: "country can't be empty"
     },
