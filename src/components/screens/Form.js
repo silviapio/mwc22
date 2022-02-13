@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Title from "../units/Title";
 import InputText from "../units/InputText";
@@ -46,6 +46,10 @@ function Form() {
     );
 
     const topEl = useRef(null);
+
+    useEffect(() => {
+        window.scrollTo(0,0);
+    }, []);
 
     const formHasError = () => {
         let errorFound = false;

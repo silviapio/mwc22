@@ -3,8 +3,8 @@ import { devices } from "../../general-styles/mediaQueries";
 
 export const MainContainer = styled.div`
     min-height: 100vh;
+    width: 90vw;
     min-width: 280px;
-    max-width: 600px;
     margin: 0;
     background-color: var(--color-white);
     display: flex;
