@@ -5,6 +5,8 @@
 
 > Profile Creator built to take part in the 4YFN-MWC Barcelona 2022 Hackathon - Front End challenge
 
+> Tech stack: JS, React, CSS3
+
 This web application allows the user to:
 
 ✅ Insert their data in a form. Fields: full name, email, city and country, description, gender (only used to generate an avatar), field of expertise (Front, Back, Mobile o Data), years of experience.
@@ -17,11 +19,11 @@ This web application allows the user to:
 
 ✅ See their profile data and edit it.
 
-### 🏠 [Homepage](https://silviapio.github.io/mwc22)
+## 🏠 [Homepage](https://silviapio.github.io/mwc22)
 
-## 🤷 [User Manual](link)
+## 🤷 [User Manual](https://github.com/silviapio/mwc22/blob/development/userManual.md)
 
-## 👩‍💻 [Developer's Manual] (link)
+## 👩‍💻 [Developer's Manual](https://github.com/silviapio/mwc22/blob/development/devManual.md)
 
 ## Author
 
@@ -33,7 +35,15 @@ This web application allows the user to:
 
 ## 🙏🏽 Credits
 
+* Color Palette: [ColorHub](https://www.colorhub.app), palette: Wario
+* Icons: [React Icons](https://react-icons.github.io/react-icons/), HeroIcons and AntDesign Icons
+* Avatars graphics: [OpenPeeps by Pablo Stanley](https://avatars.dicebear.com/styles/open-peeps)
+* Avatars API: [DiceBear Avatars](https://avatars.dicebear.com/)
+* MWC and Barcelona Digital Talent's logos are not real logos, but only made up for mock-up purposes, without implication of endorsement or property.
 
+## Notes
+
+To read more about this challenge, visit [4YFN-MWC22 Hackathon](https://nuwe.io/challenge/mwc-22-front).
 
 ## Show your support
 
