@@ -41,7 +41,4 @@ export const StyledButton = styled.button`
             background-color: var(--color-red-dark);
         }
     }
-    &.button--edit-profile {
-        margin-top: 20px;
-    }
 `;

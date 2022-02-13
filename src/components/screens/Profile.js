@@ -8,7 +8,7 @@ import Button from "../units/Button";
 import Footer from "../units/Footer";
 import { syncWithLocalStorage } from "../../utils/localStorageUtils";
 import { radioGenderData, radioFieldData, radioYearsData, profileDescriptionText } from "../../assets/inputsData";
-import { ProfileOuterContainer, SkillsContainer, ProfileErrorContainer, ProfileInnerContainer } from "./Profile.styles";
+import { ProfileOuterContainer, SkillsContainer, ProfileErrorContainer, ProfileInnerContainer, ButtonContainer } from "./Profile.styles";
 
 
 function Profile() {
@@ -70,9 +70,11 @@ function Profile() {
                     <SkillsContainer>
                     {getProfileLabels()}
                     </SkillsContainer>
+                    <ButtonContainer>
                     <Link to="/form">
-                        <Button text="Back and Edit" className="button--edit-profile" />
+                        <Button text="Back and Edit" />
                     </Link>
+                    </ButtonContainer>
                 </>
                 : 
                 <>
@@ -86,7 +88,7 @@ function Profile() {
                 </>
             }
             </ProfileInnerContainer>
-            <Footer className="footer--gray"/>
+            <Footer className="footer--profile"/>
         </ProfileOuterContainer>
         
         </>

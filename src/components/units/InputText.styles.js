@@ -15,7 +15,7 @@ export const InputContainer = styled.div`
         }
     }
     @media ${devices.tablet} {
-        min-width: 400px;
+        min-width: 350px;
     }
 `;
 
@@ -45,7 +45,7 @@ export const StyledInput = styled.input`
         }
     }
     @media ${devices.tablet} {
-        min-width: 400px;
+        min-width: 350px;
     }
 `;
 
@@ -66,7 +66,7 @@ export const StyledTextArea = styled.textarea`
         outline: 1px solid ${props => props.textOverFlow ? "red" : "var(--color-blue)"};
     }
     @media ${devices.tablet} {
-        min-width: 400px;
+        min-width: 350px;
     }
     @media ${devices.laptop} {
     }

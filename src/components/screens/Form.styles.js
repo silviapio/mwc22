@@ -4,7 +4,14 @@ import { devices } from "../../general-styles/mediaQueries";
 export const FormOuterContainer = styled.form`
     max-height: 95%;
     overflow-y: auto;
-    padding: 20px 10px 10px 22px;
+    padding: 20px 22px 10px 22px;
+    @media ${devices.laptop} {
+        max-width: 75vw;
+        align-self: center;
+    }
+    @media ${devices.desktop} {
+        max-width: 65vw;
+    }
 `;
 
 export const FormInputContainer = styled.div`
@@ -27,9 +34,9 @@ export const FirstFormGrid = styled.div`
     @media ${devices.laptop} {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        column-gap: 3rem;
     }
     @media ${devices.desktop} {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+       column-gap: 5rem;
     }
 `;

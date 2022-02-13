@@ -7,8 +7,8 @@ export const StyledFooter = styled.footer`
     color: var(--color-blue);
     background-color: var(--color-white);
     text-align: center;
-    &.footer--gray {
-        background-color: var(--color-gray);
+    &.footer--profile {
+        background-color: var(--color-white);
     }
 `;
 

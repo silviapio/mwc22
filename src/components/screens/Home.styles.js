@@ -15,6 +15,10 @@ export const WelcomeContainer = styled.div`
         width: 60vw;
         align-self: center;
     }
+    @media ${devices.laptop} {
+        width: 40vw;
+        align-self: center;
+    }
 `;
 
 export const StyledHomeP = styled.p`

@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const StyledBar = styled.header`
-    max-height: 5vh;
+    max-height: 10vh;
     min-height: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 0.5rem;
 `;
 
 export const StyledLogo = styled.img`
