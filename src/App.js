@@ -6,8 +6,6 @@ import Profile from "./components/screens/Profile";
 import { OuterContainer } from "./App.styles";
 import { GlobalStyles } from "./general-styles/globalStyles";
 
-import './App.css';
-
 function App() {
   return (
     <>
