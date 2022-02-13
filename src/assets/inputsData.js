@@ -39,7 +39,7 @@ export const textInputsData = [
 
 export const radioGenderData = {
     name: "gender",
-    question: "Gender:",
+    question: "Gender *",
     options: [
         {
             id: "def",
@@ -58,7 +58,7 @@ export const radioGenderData = {
 
 export const radioFieldData = {
     name: "field",
-    question: "Field of expertise:",
+    question: "Field of expertise *",
     options: [
         {
             id: "def",
@@ -81,7 +81,7 @@ export const radioFieldData = {
 
 export const radioYearsData = {
     name: "yearsExp",
-    question: "Years of experience:",
+    question: "Years of experience *",
     options: [
         {
             id: "def",
