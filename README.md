@@ -21,6 +21,8 @@ This web application allows the user to:
 
 ## 🏠 [Homepage](https://silviapio.github.io/mwc22)
 
+This project is currently deployed at [https://silviapio.github.io/mwc22](https://silviapio.github.io/mwc22)
+
 ## 🤷 [User Manual](https://github.com/silviapio/mwc22/blob/development/userManual.md)
 
 ## 👩‍💻 [Developer's Manual](https://github.com/silviapio/mwc22/blob/development/devManual.md)
