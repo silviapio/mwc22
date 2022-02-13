@@ -4,6 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
 
 > Profile Creator built to take part in the 4YFN-MWC Barcelona 2022 Hackathon - Front End challenge
+> Tech stack: JS, React, CSS3
 
 This web application allows the user to:
 
