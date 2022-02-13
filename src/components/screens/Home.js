@@ -12,29 +12,29 @@ function Home() {
 
     return(
         <>
-                <WelcomeContainer>
-                    { userRegistered ? 
-                        <>
+            <WelcomeContainer>
+                { userRegistered ? 
+                    <>
                         <Title text="Welcome Back!" />
                         <StyledHomeP>Click below to see your profile</StyledHomeP>
                         <StyledHomeP>( ͡° ͜ʖ ͡°)_/¯</StyledHomeP>
-                        </>
-                        :
-                        <>
+                    </>
+                    :
+                    <>
                         <Title text="Welcome to MWC 22" />
                         <StyledHomeP>Do you want to showcase your talent?</StyledHomeP>
                         <StyledHomeP>Go ahead and create a profile!</StyledHomeP>
                         <PlainIcon size="24px">
-                        <HiOutlineThumbUp />
+                            <HiOutlineThumbUp />
                         </PlainIcon>
-                        </>
-                    }
-                    
-                    <Link to={userRegistered ? "/profile" : "/form"}>
-                        <Button text={userRegistered ? "SEE PROFILE" : "NEW PROFILE"} />
-                    </Link>
-                </WelcomeContainer>
-                <Footer />
+                    </>
+                }
+                
+                <Link to={userRegistered ? "/profile" : "/form"}>
+                    <Button text={userRegistered ? "SEE PROFILE" : "NEW PROFILE"} />
+                </Link>
+            </WelcomeContainer>
+            <Footer />
         </>
     );
 }

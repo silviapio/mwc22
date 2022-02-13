@@ -16,11 +16,13 @@ function AvatarBox({gender, onChange, selectedImg}) {
         } else {
             retrieveAvatar(gender);
         }
-    }, [gender])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [gender]);
 
     useEffect(() => {
         onChange(avatarSvg);
-    }, [avatarSvg])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [avatarSvg]);
 
     const retrieveAvatar = (gender, e) => {
         if (e) {

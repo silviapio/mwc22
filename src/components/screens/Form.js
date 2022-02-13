@@ -79,16 +79,15 @@ function Form() {
         } else {
             localStorage.setItem("savedData", JSON.stringify(formData));
             goToPage("profile");
-        }
-        
-    }
+        }        
+    };
 
     const checkOnBlur = e => {
         const field = e.target.name;
         if (field === "email") {
             const updatedErrors = new Map(inputErrors);
             if (!formData.email) {
-                updatedErrors.set("email", { error: true, visible: true })
+                updatedErrors.set("email", { error: true, visible: true });
                 setInputErrors(updatedErrors);
                 return;
             }
@@ -122,7 +121,7 @@ function Form() {
                     ...prevData,
                     [e.target.name] : e.target.value,
                     avatarUrl: ""
-                }))
+                }));
             } else {
                 setFormData(prevData => ({
                     ...prevData,
@@ -143,8 +142,7 @@ function Form() {
             return true;
         } else {
             return hasError(id);
-        }
-        
+        }        
     };
 
     const hasError = id => inputErrors.get(id).error && inputErrors.get(id).visible;
@@ -155,7 +153,7 @@ function Form() {
         } else {
             return str;
         }
-    }
+    };
 
     const handleAvatarChange = imgUrl => {
         setFormData(
@@ -171,7 +169,7 @@ function Form() {
             ...prevData,
             skills: [...prevData.skills, str]
         }));
-    }
+    };
 
     const handleDeleteSkill = id => {
         const updatedSkills = formData.skills.filter((skill, i) => i !== id );
@@ -182,7 +180,7 @@ function Form() {
     };
 
     const handleDeleteAll = e => {
-        e.preventDefault()
+        e.preventDefault();
         localStorage.removeItem("savedData");
         goToPage("");
     };
@@ -223,8 +221,7 @@ function Form() {
                         value={formData.yearsExp}
                         question={radioYearsData.question}
                         onChange={handleInputChange}
-                    />
-                    
+                    />                    
                     <InputRadio
                         name={radioGenderData.name}
                         options={radioGenderData.options}
@@ -233,11 +230,24 @@ function Form() {
                         infoText="we'll store it only for avatar creation"
                         onChange={handleInputChange}
                     />
-                    <AvatarBox gender={formData.gender} onChange={handleAvatarChange} selectedImg={formData.avatarUrl}/> 
-                    <SkillsBox handleAddSkill={handleAddSkill} handleDeleteSkill={handleDeleteSkill} labels={formData.skills}/>                                   
+                    <AvatarBox 
+                        gender={formData.gender} 
+                        onChange={handleAvatarChange} 
+                        selectedImg={formData.avatarUrl}
+                    /> 
+                    <SkillsBox 
+                        handleAddSkill={handleAddSkill} 
+                        handleDeleteSkill={handleDeleteSkill} 
+                        labels={formData.skills}
+                    />                                   
                 </FormInputContainer>
                 <BottomButtonsContainer>
-                    <Button text="Reset Form" onClick={handleDeleteAll} className={"button--delete-all"} dark={true}/>
+                    <Button 
+                        text="Reset Form" 
+                        onClick={handleDeleteAll} 
+                        className={"button--delete-all"} 
+                        dark={true}
+                    />
                     <Button text="Save Data" onClick={handleSubmit} />
                 </BottomButtonsContainer>
             </FormOuterContainer>

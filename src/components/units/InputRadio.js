@@ -5,7 +5,14 @@ function InputRadio({name, options, value, question, infoText, onChange}) {
         const checked = option.id === value || "";
         return (
         <RadioOptionContainer key={i}>
-            <RadioCheck type="radio" name={name} id={option.id} value={option.id} checked={checked} onChange={onChange} />
+            <RadioCheck 
+                type="radio" 
+                name={name} 
+                id={option.id} 
+                value={option.id} 
+                checked={checked} 
+                onChange={onChange} 
+            />
             <RadioLabel htmlFor={option.id}>{option.text}</RadioLabel>
         </RadioOptionContainer>
         );
@@ -13,11 +20,15 @@ function InputRadio({name, options, value, question, infoText, onChange}) {
 
     return(
         <RadioContainer>
-            <RadioP>{question}</RadioP>
+            <RadioP>
+                {question}
+            </RadioP>
             <RadioAllOptionsContainer>
                 {showOptions}
             </RadioAllOptionsContainer>
-            <StyledSmallMessage>{infoText}</StyledSmallMessage>
+            <StyledSmallMessage>
+                {infoText}
+            </StyledSmallMessage>
         </RadioContainer>
     );
 }

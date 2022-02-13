@@ -4,7 +4,7 @@ import { LabelContainer, LabelText, LabelButton } from "./Label.styles";
 function Label({text, onClick, id, canBeDeleted = true}) {
     const handleClick = (e) => {
         onClick(e, id);
-    }
+    };
 
     return(
         <LabelContainer>

@@ -100,7 +100,7 @@ export const radioYearsData = {
             text: "10+"
         }
     ]
-}
+};
 
 export const profileDescriptionText = [
     {
@@ -139,4 +139,4 @@ export const profileDescriptionText = [
         key: "skills",
         text: "Your skills:"
     }
-]
+];

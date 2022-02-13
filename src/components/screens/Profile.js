@@ -32,6 +32,7 @@ function Profile() {
             field: fieldText,
             yearsExp: yearsText
         }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const getProfileDataItems = () => {
@@ -44,7 +45,7 @@ function Profile() {
             } else {
                 text = profileData[item.key];
             }
-            return <ProfileItem key={i} descText={item.text} dataText={text} />
+            return <ProfileItem key={i} descText={item.text} dataText={text} />;
         });
     };   
 
@@ -53,7 +54,7 @@ function Profile() {
             return;
         }
         if (profileData.skills.length === 0) {
-            return <p>---</p>
+            return <p>---</p>;
         } else {
             return profileData.skills.map((skill, i) => <Label key={i} text={skill} canBeDeleted={false}/>);
         }
@@ -61,37 +62,36 @@ function Profile() {
 
     return(
         <>
-        <ProfileOuterContainer>
-            <ProfileInnerContainer>
-            <Title text="Profile Summary" className="title--profile"/>
-            { profileData ?
-                <>
-                    <AvatarImg avatarSvg={profileData.avatarUrl} />
-                    {getProfileDataItems()}
-                    <SkillsContainer>
-                    {getProfileLabels()}
-                    </SkillsContainer>
-                    <ButtonContainer>
-                    <Link to="/form">
-                        <Button text="Back and Edit" />
-                    </Link>
-                    </ButtonContainer>
-                </>
-                : 
-                <>
-                    <ProfileErrorContainer>
-                    <p>Sorry, no data available</p>
-                    <p>¯\_(ツ)_/¯</p>
-                    <Link to="/">
-                        <Button text="Back to Home" />
-                    </Link>
-                    </ProfileErrorContainer>
-                </>
-            }
-            </ProfileInnerContainer>
-            <Footer className="footer--profile"/>
-        </ProfileOuterContainer>
-        
+            <ProfileOuterContainer>
+                <ProfileInnerContainer>
+                <Title text="Profile Summary" className="title--profile"/>
+                { profileData ?
+                    <>
+                        <AvatarImg avatarSvg={profileData.avatarUrl} />
+                        {getProfileDataItems()}
+                        <SkillsContainer>
+                            {getProfileLabels()}
+                        </SkillsContainer>
+                        <ButtonContainer>
+                            <Link to="/form">
+                                <Button text="Back and Edit" />
+                            </Link>
+                        </ButtonContainer>
+                    </>
+                    : 
+                    <>
+                        <ProfileErrorContainer>
+                            <p>Sorry, no data available</p>
+                            <p>¯\_(ツ)_/¯</p>
+                            <Link to="/">
+                                <Button text="Back to Home" />
+                            </Link>
+                        </ProfileErrorContainer>
+                    </>
+                }
+                </ProfileInnerContainer>
+                <Footer className="footer--profile"/>
+            </ProfileOuterContainer> 
         </>
     );
 }

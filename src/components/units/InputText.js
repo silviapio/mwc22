@@ -31,15 +31,15 @@ function InputText({left, id, value, labelText, placeholderText, messageText, di
             }            
         } else if (type === "textarea") {
             return <StyledTextArea 
-                        id={id} 
-                        name={id}
-                        type={type} 
-                        value={value}
-                        placeholder={placeholderText} 
-                        onBlur={onBlur} 
-                        onChange={onChange}
-                        textOverFlow={textOverFlow}
-                    />;
+                id={id} 
+                name={id}
+                type={type} 
+                value={value}
+                placeholder={placeholderText} 
+                onBlur={onBlur} 
+                onChange={onChange}
+                textOverFlow={textOverFlow}
+            />;
         }
     };
 
@@ -58,10 +58,9 @@ function InputText({left, id, value, labelText, placeholderText, messageText, di
     return(
         <InputContainer  left={left} className={`container--${className}`}>
             <StyledLabel htmlFor={id}>
-            {labelText}
+                {labelText}
             </StyledLabel>
-                {inputField(type)}
-            {/* <StyledSmallMessage show={displayMessage} type={type} id={id} textOverFlow={textOverFlow}> */}
+            {inputField(type)}
             <StyledSmallMessage show={displayMessage} error={hasLabelError()}>
                 {messageText}
             </StyledSmallMessage>

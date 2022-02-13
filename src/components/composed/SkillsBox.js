@@ -19,7 +19,7 @@ function SkillsBox({handleAddSkill, handleDeleteSkill, labels}) {
         } else {
             setButtonDisabled(false);
         }
-    }, [currentSkill])
+    }, [currentSkill]);
 
     const handleSkillChange = e => {
         const charLeft = charactersLeft(CHAR_ALLOWED_INPUT, e.target.value);
@@ -28,7 +28,7 @@ function SkillsBox({handleAddSkill, handleDeleteSkill, labels}) {
             hasError: charLeft < 0
         }
         setCurrentSkill(updatedSkill);
-    }
+    };
 
     const handleAdd = e => {
         e.preventDefault();
@@ -48,12 +48,12 @@ function SkillsBox({handleAddSkill, handleDeleteSkill, labels}) {
             e.preventDefault();
             handleAdd(e);
         }
-    }
+    };
 
     const onDeleteSkill = (e, id) => {
         e.preventDefault();
         handleDeleteSkill(id);
-    }
+    };
 
     return(
         <SkillsBoxContainer>
@@ -72,10 +72,16 @@ function SkillsBox({handleAddSkill, handleDeleteSkill, labels}) {
                     onKeyPress={handleEnterPress}
                     className="skills-input"
                 />
-                <Button text="Add" dark="true" className="button--add-skill" onClick={handleAdd} disabled={buttonDisabled} />
+                <Button 
+                    text="Add" 
+                    dark="true" 
+                    className="button--add-skill" 
+                    onClick={handleAdd} 
+                    disabled={buttonDisabled} 
+                />
             </SkillsInputContainer>
             <SkillLabelsContainer>
-            {labels.map((skill, i) => <Label key={i} text={skill} id={i} onClick={onDeleteSkill}/>)}
+                {labels.map((skill, i) => <Label key={i} text={skill} id={i} onClick={onDeleteSkill}/>)}
             </SkillLabelsContainer>
         </SkillsBoxContainer>
     );
