@@ -6,7 +6,7 @@ export const LabelContainer = styled.div`
     min-width: 3rem;
     margin: 2px;
     padding: 1px 5px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: var(--color-blue);
     &:first-child {
         margin-left: 0;

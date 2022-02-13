@@ -6,7 +6,7 @@ import { charactersLeft } from "../../utils/checkInputText";
 import { SkillsBoxContainer, SkillsInputContainer, SkillLabelsContainer } from "./SkillsBox.styles";
 
 function SkillsBox({handleAddSkill, handleDeleteSkill, labels}) {
-    const CHAR_ALLOWED_INPUT = 22;
+    const CHAR_ALLOWED_INPUT = 20;
     const [currentSkill, setCurrentSkill] = useState({
         text: "",
         hasError: false
