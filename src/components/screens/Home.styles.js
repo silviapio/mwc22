@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { devices } from "../../general-styles/mediaQueries";
 
 export const WelcomeContainer = styled.div`
     min-height: 60vh;
@@ -10,6 +11,10 @@ export const WelcomeContainer = styled.div`
     padding: 2rem 1.2rem;
     border-radius: 5px;
     background-color: var(--color-gray);
+    @media ${devices.tablet} {
+        width: 60vw;
+        align-self: center;
+    }
 `;
 
 export const StyledHomeP = styled.p`

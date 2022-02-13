@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledBar = styled.header`
+    max-height: 5vh;
     min-height: 2rem;
     display: flex;
     justify-content: space-between;

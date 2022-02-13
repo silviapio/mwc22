@@ -1,13 +1,17 @@
 import styled from "styled-components";
+import { devices } from "../../general-styles/mediaQueries";
 
 export const ProfileOuterContainer = styled.div`
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    min-height: 95vh;
     overflow-y: auto;
     background-color: var(--color-gray);
     border-left: 1px solid var(--color-white);
     border-right: 1px solid var(--color-white);
+    @media ${devices.laptop} {
+        min-height: 95vh;
+    }
 `;
 
 export const ProfileInnerContainer = styled.div`

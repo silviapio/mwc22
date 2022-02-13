@@ -36,6 +36,7 @@ export const StyledButton = styled.button`
         background-color: var(--color-danger);
         color: var(--color-gray);
         border-color: var(--color-gray);
+        margin-right: 30px;
         &:hover {
             background-color: var(--color-red-dark);
         }

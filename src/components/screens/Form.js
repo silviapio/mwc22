@@ -10,7 +10,7 @@ import Footer from "../units/Footer";
 import { isEmailInputOk, charactersLeft } from "../../utils/checkInputText";
 import { syncWithLocalStorage, isUserRegistered } from "../../utils/localStorageUtils";
 import { textInputsData, radioGenderData, radioFieldData, radioYearsData } from "../../assets/inputsData";
-import { FormOuterContainer, FormInputContainer, BottomButtonsContainer } from "./Form.styles";
+import { FormOuterContainer, FormInputContainer, BottomButtonsContainer, FirstFormGrid } from "./Form.styles";
 
 function Form() {
     const CHAR_ALLOWED_DESC = 160;
@@ -188,6 +188,7 @@ function Form() {
             <FormOuterContainer onSubmit={handleSubmit} autoComplete="off">
                 <Title text="Your Data"  forwardRef={topEl}/>
                 <FormInputContainer>
+                    <FirstFormGrid>
                     {textInputsData.map((input, i) => 
                         <InputText
                             key={i}
@@ -204,6 +205,7 @@ function Form() {
                             onChange={handleInputChange}
                         />
                     )}
+                    </FirstFormGrid>
                     <InputRadio 
                         name={radioFieldData.name}
                         options={radioFieldData.options}
@@ -218,6 +220,7 @@ function Form() {
                         question={radioYearsData.question}
                         onChange={handleInputChange}
                     />
+                    
                     <InputRadio
                         name={radioGenderData.name}
                         options={radioGenderData.options}
@@ -226,12 +229,12 @@ function Form() {
                         infoText="we'll store it only for avatar creation"
                         onChange={handleInputChange}
                     />
-                    <SkillsBox handleAddSkill={handleAddSkill} handleDeleteSkill={handleDeleteSkill} labels={formData.skills}/>
-                    <AvatarBox gender={formData.gender} onChange={handleAvatarChange} selectedImg={formData.avatarUrl}/>                
+                    <AvatarBox gender={formData.gender} onChange={handleAvatarChange} selectedImg={formData.avatarUrl}/> 
+                    <SkillsBox handleAddSkill={handleAddSkill} handleDeleteSkill={handleDeleteSkill} labels={formData.skills}/>                                   
                 </FormInputContainer>
                 <BottomButtonsContainer>
-                    <Button text="Delete" onClick={handleDeleteAll} className={"button--delete-all"} dark={true}/>
-                    <Button text="Save" onClick={handleSubmit} />
+                    <Button text="Reset Form" onClick={handleDeleteAll} className={"button--delete-all"} dark={true}/>
+                    <Button text="Create Profile" onClick={handleSubmit} />
                 </BottomButtonsContainer>
             </FormOuterContainer>
             <Footer />

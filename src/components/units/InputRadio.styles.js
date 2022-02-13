@@ -20,6 +20,7 @@ export const RadioAllOptionsContainer = styled.div`
 export const RadioOptionContainer = styled.div`
     display: flex;
     flex-direction: row;
+    align-items: center;
 `;
 
 export const RadioCheck = styled.input`

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledFooter = styled.footer`
     margin-top: auto;
     width: 100%;
-    //height: 10%:
+    height: 5vh:
     color: var(--color-blue);
     background-color: var(--color-white);
     text-align: center;

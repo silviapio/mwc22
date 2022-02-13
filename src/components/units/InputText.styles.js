@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { devices } from "../../general-styles/mediaQueries";
 
 export const InputContainer = styled.div`
     display: flex;
@@ -8,6 +9,13 @@ export const InputContainer = styled.div`
     margin-bottom: 18px;
     &.container--skills-input {
         margin-bottom: 5px;
+        @media ${devices.tablet} {
+            min-width: 350px;
+            margin-right: 12px;
+        }
+    }
+    @media ${devices.tablet} {
+        min-width: 400px;
     }
 `;
 
@@ -32,6 +40,12 @@ export const StyledInput = styled.input`
     }
     &.input--skills-input {
         min-width: 200px;
+        @media ${devices.tablet} {
+            min-width: 350px;
+        }
+    }
+    @media ${devices.tablet} {
+        min-width: 400px;
     }
 `;
 
@@ -50,6 +64,11 @@ export const StyledTextArea = styled.textarea`
     }
     &:focus-visible { //check if it's ok for all browsers
         outline: 1px solid ${props => props.textOverFlow ? "red" : "var(--color-blue)"};
+    }
+    @media ${devices.tablet} {
+        min-width: 400px;
+    }
+    @media ${devices.laptop} {
     }
 `;
 
