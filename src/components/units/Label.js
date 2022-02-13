@@ -10,7 +10,7 @@ function Label({text, onClick, id, canBeDeleted = true}) {
         <LabelContainer>
             <LabelText>{text}</LabelText>
             {canBeDeleted && 
-                <LabelButton onClick={handleClick}>
+                <LabelButton onClick={handleClick} aria-label="delete skill">
                     <HiOutlineTrash />
                 </LabelButton>}
         </LabelContainer>
